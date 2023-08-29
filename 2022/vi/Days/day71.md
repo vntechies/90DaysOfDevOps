@@ -20,7 +20,7 @@ Lựa chọn còn lại và cũng là cách được ưa thích hơn đó là c�
 
 ![](../../Days/Images/Day71_CICD2.png)
 
-Các phương pháp trên có nghĩa là với việc các nhà phát triển phân tán trên khắp thế giới chúng ta không có một thời gian cố định hàng ngày để dừng commit thay đổi mã nguồn. Đây chính là thời điểm Jenkins ra đời đóng vai trò như một máy chủ CI để kiểm soát các quá trình kiểm thử và xây dựng.
+Các phương pháp trên có nghĩa là với việc các kỹ sư phát triển ở các địa điểm khác nhau trên khắp thế giới, chúng ta không có một thời gian cố định hàng ngày để dừng lại quá trình commit và thay đổi mã nguồn. Đây chính là thời điểm Jenkins ra đời đóng vai trò như một máy chủ CI để kiểm soát các quá trình kiểm thử và xây dựng.
 
 ![](../../Days/Images/Day71_CICD3.png)
 
@@ -40,7 +40,7 @@ Vì chúng ta bây giờ sẽ tập trung vào Jenkins - Jenkins một lần n�
 
 Như bạn mong đợi, Jenkins có nhiều đặc điểm bảo phủ nhiều lĩnh vực.
 
-**Cài đặt dễ dàng** - Jenkins là một chương trình < i dont know how to explain *self-contained*>.... nền tảng java sẵn sàng chạy với các gói của hệ điều hành Windows, macOS và Linux.
+**Cài đặt dễ dàng** - Jenkins là một chương trình độc lập (self-contained) viết bằng java và sẵn sàng trên mọi hệ điều hành như Windows, macOS và Linux.
 
 **Cấu hình dễ dàng** - Cài đặt và cấu hình dễ dàng thông qua giao diện web bao gồm kiểm tra lỗi và hỗ trợ tích hợp sẵn.
 
@@ -48,19 +48,19 @@ Như bạn mong đợi, Jenkins có nhiều đặc điểm bảo phủ nhiều l
 
 **Có thể mở rộng**- Ngoài các plugin có sẵn, Jenkins có thể mở rộng được thông qua kiến trúc plugin, cung cấp gần như vô tận các tùy chọn cho những gì nó có thể được sử dụng.
 
-**Phân tán** - Jenkins dễ dàng phân phối công việc qua nhiều máy tính, giúp tăng tốc độ xây dựng, kiếm thử và triển khai qua nhiều nền tảng. 
+**Phân tán** - Jenkins dễ dàng chạy trên hệ phân tán với nhiều máy chủ, giúp tăng tốc độ xây dựng, kiếm thử và triển khai qua nhiều nền tảng.
 
 ### Jenkins Pipeline
 
-Bạn sẽ thấy pipeline này nhưng được sử dụng ở phạm vi rộng hơn và ở đây chúng tôi chưa nói về các công cụ cụ thể.
+Bạn sẽ thấy pipeline này nhưng được sử dụng ở phạm vi rộng hơn và ở đây chúng tôi đề cập tới các công cụ cụ thể.
 
-Bạn commit mã nguồn tới Jenkins, nơi sau đó sẽ xây dựng ứng dụng của bạn, với tất cả bài kiểm thử tự động, nó sẽ phát hành và triển khai mã nguồn đó khi mỗi bước được hoàn thành. Jenkins là việc cho phép sự tự động của quá trình này diễn ra.
+Bạn commit mã nguồn tới Jenkins, nơi sau đó sẽ xây dựng ứng dụng của bạn, với tất cả bài kiểm thử tự động, nó sẽ phát hành và triển khai mã nguồn đó khi mỗi bước được hoàn thành. Jenkins sẽ tự động hoá quá trình này.
 
 ![](../../Days/Images/Day71_CICD4.png)
 
 ### Kiến trúc Jenkins
 
-Đầu tiên và không muốn làm lại những gì đã có sẵn, [Tài liệu Jenkins](https://www.jenkins.io/doc/developer/architecture/) luôn là nơi để bắt đầu, nhưng tôi sẽ ghi lại các ghi chú và kiến thức của mình ở đây.
+Đầu tiên, để không làm lại những thứ đã có sẵn, [Tài liệu chính thức của Jenkins](https://www.jenkins.io/doc/developer/architecture/) luôn là nơi để bắt đầu, dù vậy, tôi vẫn sẽ ghi lại các ghi chú và kiến thức của mình ở đây.
 
 Jenkins có thể được cài đặt trên nhiều hệ điều hành khác nhau như Windows, Linux và macOS và cả khả năng triển khai như một Docker container và trong Kubernetes. [Cài đặt Jenkins](https://www.jenkins.io/doc/book/installing/)
 
@@ -88,15 +88,15 @@ Chu kỳ này diễn ra liên tục, điều này cho phép các ứng dụng đ
 
 ![](../../Days/Images/Day71_CICD5.png)
 
-Có rất nhiều khía cạnh khác về kiến trúc của Jenkins nếu bạn cần, chúng có khả năng master-slave, cho phép một master phân bổ các tác vụ tới môi trường Jenkins con (slave). 
+Có rất nhiều khía cạnh khác về kiến trúc của Jenkins, ví dụ như nó có khả năng hoạt động theo kiến trúc master-slave, cho phép một master phân tán tới các slave của Jenkins. 
 
-Về thông tin tham khảo, Jenkins là mã nguồn mở, sẽ có nhiều doanh nghiệp yêu cầu hỗ trợ, Cloudbees là phiên bản doanh nghiệp của Jenkins mang tới sự hỗ trợ và có thể các chức năng trả phí khác cho khách hàng doanh nghiệp.
+Để tham khảo thêm, Jenkins là mã nguồn mở, sẽ có nhiều doanh nghiệp cần được hỗ trợ, Cloudbees là phiên bản doanh nghiệp của Jenkins cung cấp hỗ trợ và các chức năng trả phí khác cho các khách hàng doanh nghiệp.
 
-Ví dụ như một khách hàng là Bosch, bạn có thể tìm hiểu về trường hợp của Bosch ở [đây](https://assets.ctfassets.net/vtn4rfaw6n2j/case-study-boschpdf/40a0b23c61992ed3ee414ae0a55b6777/case-study-bosch.pdf)
+Ví dụ như một trong số các khách hàng là Bosch, bạn có thể tìm hiểu về trường hợp của Bosch ở [đây](https://assets.ctfassets.net/vtn4rfaw6n2j/case-study-boschpdf/40a0b23c61992ed3ee414ae0a55b6777/case-study-bosch.pdf)
 
 Tôi sẽ tìm kiếm một ví dụ về một ứng dụng mà chúng ta có thể dùng qua đó hiểu được việc sử dụng Jenkins và sử dụng nó với các công cụ khác.
 
-## Tài liệ tham khảo
+## Tài liệu tham khảo
 
 - [Jenkins là một cách để xây dựng, kiểm thử, triển khai](https://www.youtube.com/watch?v=_MXtbjwsz3A)
 - [Jenkins.io](https://www.jenkins.io/)
