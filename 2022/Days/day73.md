@@ -17,7 +17,7 @@ You might have also seen that there are some example scripts available for us to
 ![](Images/Day73_CICD1.png)
 
 The first demo script is "Declarative (Kubernetes)" and you can see the stages below.
-
+  
 ```Yaml
 // Uses Declarative syntax to run commands inside a container.
 pipeline {
@@ -74,8 +74,7 @@ You can see below the outcome of what happens when this Pipeline is run.
 
 To achieve this in our Kubernetes cluster running in or using Minikube we need to use something called [Kaniko](https://github.com/GoogleContainerTools/kaniko#running-kaniko-in-a-kubernetes-cluster) It is general though if you are using Jenkins in a real Kubernetes cluster or you are running it on a server then you can specify an agent which will give you the ability to perform the docker build commands and upload that to DockerHub.
 
-With the above in mind, we are also going to deploy a secret into Kubernetes with our GitHub credentials.
-
+Với thông tin trên, chúng ta cũng sẽ triển khai một secret vào Kubernetes với thông tin đăng nhập GitHub của chúng ta.
 ```Shell
 kubectl create secret docker-registry dockercred \
     --docker-server=https://index.docker.io/v1/ \
