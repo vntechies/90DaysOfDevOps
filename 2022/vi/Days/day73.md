@@ -16,7 +16,6 @@ Bạn cũng có thể thấy rằng có một số kịch bản mẫu cho chúng
 
 ![](../../Days/Images/Day73_CICD1.png)
 
-The first demo script is "Declarative (Kubernetes)" and you can see the stages below.
 Kịch bản demo đầu tiên là "Declarative (Kubernetes)" và bạn có thể thấy các giai đoạn bên dưới.
 
 ```Yaml
@@ -60,8 +59,6 @@ spec:
     }
 }
 ```
-
-You can see below the outcome of what happens when this Pipeline is run.
 Bạn có thể thấy kết quả của những gì đã xảy ra khi Pipeline này chạy ở bên dưới.
 
 ![](../../Days/Images/Day73_CICD2.png)
@@ -114,11 +111,11 @@ Sau đó ở phía trên bên trái, lựa chọn Add Credentials.
 
 Đối với GitHub, bạn nên sử dụng [Personal Access Token](https://vzilla.co.uk/vzilla-blog/creating-updating-your-github-personal-access-token)
 
-Tôi không thấy quy trình này khá dễ hiểu để tạo các tài khoản này, vì vậy ngay cả khi chúng ta không sử dụng, tôi muốn chia sẻ quy trình vì nó không rõ ràng từ giao diện người dùng.
+Tôi thấy quy trình này khá khó hiểu để tạo các tài khoản này, vì vậy ngay cả khi chúng ta không sử dụng, tôi muốn chia sẻ quy trình vì nó không rõ ràng từ giao diện người dùng.
 
 ### Xây dựng Pipeline
 
-Chúng ta có thông tin xác Dockerhub được triển khai như một secret vào trong cụm Kubernetes, và chúng ta sẽ gọi nó trong giai đoạn triển khai docker đến DockerHub trong pipeline của chúng ta.
+Chúng ta đã có thông tin xác thực với Dockerhub được triển khai như một secret vào trong cụm Kubernetes, và chúng ta sẽ gọi nó trong giai đoạn triển khai docker đến DockerHub trong pipeline của chúng ta.
 
 Bạn có thể thấy kịch bản pipeline bên dưới, nó có thể trở thành Jenkinsfile của chúng ta nằm trong kho lưu trữ GitHub, bạn cũng có thể thấy nó được liệt kê trong giai đoạn "Get the project" của pipeline.
 
