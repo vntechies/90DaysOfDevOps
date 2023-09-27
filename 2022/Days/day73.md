@@ -17,7 +17,7 @@ You might have also seen that there are some example scripts available for us to
 ![](Images/Day73_CICD1.png)
 
 The first demo script is "Declarative (Kubernetes)" and you can see the stages below.
-  
+
 ```Yaml
 // Uses Declarative syntax to run commands inside a container.
 pipeline {
