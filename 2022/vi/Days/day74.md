@@ -10,7 +10,7 @@ id: 1048744
 
 ## Hello World - Jenkinsfile App Pipeline
 
-Ở bài trước, chúng ta đã xây một Pipeline đơn giản trong Jenkins có thể đẩy ảnh docker từ dockerfile trong một kho lưu trữ Github công khai tới kho lưu trữ Dockerhub riêng tư.
+Ở bài trước, chúng ta đã xây một Pipeline đơn giản trong Jenkins có thể đẩy Docker images từ dockerfile trong một kho lưu trữ Github công khai tới kho lưu trữ Dockerhub riêng tư.
 
 Trong bài này, chúng ta muốn bước một bước xa hơn và đạt được các mục tiêu sau với ứng dụng đơn giản của chúng ta.
 ### Mục tiêu
@@ -38,10 +38,10 @@ Hãy quay trở lại bảng điều khiển Jenkins, chúng ta sẽ tạo một
 
 ![](../../Days/Images/Day74_CICD3.png)
 
-Ở bước này, chúng ta có thể nhấn "Lưu" và "Áp dụng", sau đó chúng ta sẽ có thể chạy thủ công Pipeline của mình để xây dựng hình ảnh Docker mới và tải lên kho DockerHub của chúng ta.
+Ở bước này, chúng ta có thể nhấn "Lưu" và "Áp dụng", sau đó chúng ta sẽ có thể chạy thủ công Pipeline của mình để xây dựng Docker images mới và tải lên kho DockerHub của chúng ta.
 Tuy nhiên, tôi cũng muốn đảm bảo rằng chúng ta đã đặt lịch mỗi khi kho lưu trữ hoặc mã nguồn thay đổi sẽ kích hoạt một tiến trình xây dựng. Chúng ta có thể sử dụng webhooks hoặc đồng bộ kéo định kỳ.
 
-Điều này đáng để quan tâm vì nếu bạn đang sử dụng các tài nguyên đám mây mất phí để giữ pipeline và bạn có nhiều thay đổi tới kho lưu trữ mã nguồn bạn sẽ chịu phát sinh nhiều chi phí. Chúng ta biết rằng đây chỉ là một môi trường chạy thử đó là lí do tôi đang sử dụng lựa chọn "poll scm". (Tôi cũng tin rằng sử dụng minikube tôi sẽ thiếu đi khả năng sử dụng webhooks )
+Điều này đáng để quan tâm vì nếu bạn đang sử dụng các tài nguyên đám mây mất phí để duy trì pipeline và bạn có nhiều thay đổi tới kho lưu trữ mã nguồn bạn sẽ chịu phát sinh nhiều chi phí. Chúng ta biết rằng đây chỉ là một môi trường chạy thử đó là lí do tôi đang sử dụng lựa chọn "poll scm". (Ngoài ra, tôi tin rằng khi sử dụng minikube tôi sẽ thiếu đi chức năng webhook)
 
 ![](../../Days/Images/Day74_CICD4.png)
 
@@ -61,7 +61,7 @@ Bây giờ hãy bấm nút "Build Now" và thẻ stage view của chúng ta sẽ
 
 ![](../../Days/Images/Day74_CICD8.png)
 
-Nếu chúng ta sau đó đi đến kho DockerHub của mình, chúng ta sẽ thấy có 2 ảnh Docker mới. Chúng ta nên có một Build ID là 1 và latest vì đối với mỗi lần xây dựng mà chúng ta tạo dựa trên "Upload to DockerHub" chúng ta gửi một phiên bản bằng biến môi trường Jenkins Build_ID và chúng ta cũng phát hành một phiên bản "latest".
+Nếu chúng ta sau đó đi đến kho DockerHub của mình, chúng ta sẽ thấy có 2 Docker images mới. Chúng ta nên có một Build ID là 1 và latest vì đối với mỗi lần xây dựng mà chúng ta tạo dựa trên "Upload to DockerHub" chúng ta gửi một phiên bản bằng biến môi trường Jenkins Build_ID và chúng ta cũng phát hành một phiên bản "latest".
 
 ![](../../Days/Images/Day74_CICD9.png)
 
